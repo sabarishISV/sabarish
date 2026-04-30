@@ -7,7 +7,6 @@ import Certifications from "@/components/home/Certifications";
 import Skills from "@/components/home/Skills";
 import Projects from "@/components/home/Projects";
 import ResumeCTA from "@/components/home/ResumeCTA";
-import SocialConnect from "@/components/home/SocialConnect";
 import ContactForm from "@/components/home/ContactForm";
 import Footer from "../components/common/Footer";
 
