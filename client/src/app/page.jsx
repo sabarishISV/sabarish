@@ -8,22 +8,23 @@ import Skills from "@/components/home/Skills";
 import Projects from "@/components/home/Projects";
 import ResumeCTA from "@/components/home/ResumeCTA";
 import ContactForm from "@/components/home/ContactForm";
-import Footer from "../components/common/Footer";
+import Footer from "@/components/common/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-white text-white overflow-x-hidden">
+    <main className="bg-white text-black overflow-x-hidden">
       <Navbar />
       <Hero />
-      <div id="about"><AboutSnapshot /></div>
-      <div id="education"><Education /></div>
-      <div id="experience"><Experience /></div>
-      <Certifications />
-      <div id="skills"><Skills /></div>
-      <div id="projects"><Projects /></div>
-      <ResumeCTA />
-      {/* <SocialConnect /> */}
-      <div id="contact"><ContactForm /></div>
+
+      <section id="about"><AboutSnapshot /></section>
+      <section id="education"><Education /></section>
+      <section id="experience"><Experience /></section>
+      <section><Certifications /></section>
+      <section id="skills"><Skills /></section>
+      <section id="projects"><Projects /></section>
+      <section><ResumeCTA /></section>
+      <section id="contact"><ContactForm /></section>
+
       <Footer />
     </main>
   );

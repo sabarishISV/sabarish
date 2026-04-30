@@ -64,6 +64,7 @@ export default function ContactForm() {
   return (
     <section className="py-10 px-4 border-t border-black/[0.08] bg-[#fafafa]">
       <div className="max-w-xl mx-auto flex flex-col items-center">
+
         {/* Connect With Me */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -75,9 +76,9 @@ export default function ContactForm() {
           <h2 className="text-3xl font-bold text-[#1a1a1a] mb-1">
             Connect With Me
           </h2>
+
           <div className="h-1.5 w-16 bg-[#F5E800] rounded-sm mx-auto mb-5" />
 
-          {/* Social Chips */}
           <div className="flex flex-wrap gap-3 justify-center">
             {SOCIAL_LINKS.map((social) => (
               <a
@@ -94,42 +95,41 @@ export default function ContactForm() {
           </div>
         </motion.div>
 
-        {/* 3D Character — top */}
+        {/* Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.88 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="mb-2 select-none"
-          aria-hidden
+          aria-hidden="true"
         >
           <div className="text-6xl">🧑‍💻</div>
         </motion.div>
 
-        {/* Success/Error Messages */}
+        {/* Success */}
         {showSuccess && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
             className="w-full mb-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm text-center"
           >
-            Message sent successfully! I'll get back to you soon.
+            Message sent successfully! I&apos;ll get back to you soon.
           </motion.div>
         )}
 
+        {/* Error */}
         {showError && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
             className="w-full mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm text-center"
           >
             {errorMessage || "Failed to send message. Please try again."}
           </motion.div>
         )}
 
-        {/* Light Form Card */}
+        {/* Form */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,131 +140,155 @@ export default function ContactForm() {
           <h3 className="text-center text-xl font-bold text-[#1a1a1a] mb-1">
             Contact me
           </h3>
+
           <p className="text-center text-sm text-[#555] mb-6">
             Cultivating Connections: Reach Out And Connect With Me
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" noValidate>
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="space-y-4"
+            noValidate
+          >
+
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
               <div>
                 <input
                   name="name"
                   type="text"
                   placeholder="Name"
-                  suppressHydrationWarning
-                  className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all ${errors.name ? 'border-red-500 bg-red-50' : 'border-black/[0.12]'
-                    }`}
+                  className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all ${
+                    errors.name
+                      ? "border-red-500 bg-red-50"
+                      : "border-black/[0.12]"
+                  }`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-xs mt-1">{errors.name}</p>
                 )}
               </div>
+
               <div>
                 <input
                   name="email"
                   type="email"
                   placeholder="Email"
-                  suppressHydrationWarning
-                  className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all ${errors.email ? 'border-red-500 bg-red-50' : 'border-black/[0.12]'
-                    }`}
+                  className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all ${
+                    errors.email
+                      ? "border-red-500 bg-red-50"
+                      : "border-black/[0.12]"
+                  }`}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs mt-1">{errors.email}</p>
                 )}
               </div>
+
             </div>
 
             {/* Row 2 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
               <div>
                 <input
                   name="phone"
                   type="tel"
                   placeholder="Phone Number"
-                  suppressHydrationWarning
-                  className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all ${errors.phone ? 'border-red-500 bg-red-50' : 'border-black/[0.12]'
-                    }`}
+                  className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all ${
+                    errors.phone
+                      ? "border-red-500 bg-red-50"
+                      : "border-black/[0.12]"
+                  }`}
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
                 )}
               </div>
+
               <div className="relative">
                 <select
                   name="service"
                   defaultValue=""
-                  suppressHydrationWarning
-                  className={`w-full appearance-none border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all bg-white pr-8 ${errors.service
-                      ? 'border-red-500 bg-red-50 text-red-700'
-                      : 'border-black/[0.12] text-[#555]'
-                    }`}
+                  className={`w-full appearance-none border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all bg-white pr-8 ${
+                    errors.service
+                      ? "border-red-500 bg-red-50 text-red-700"
+                      : "border-black/[0.12] text-[#555]"
+                  }`}
                 >
                   <option value="" disabled>
                     Service Of Interest
                   </option>
+
                   {SERVICE_OPTIONS.map((opt) => (
                     <option key={opt} value={opt}>
                       {opt}
                     </option>
                   ))}
                 </select>
+
                 <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#555] text-xs">
                   ▾
                 </span>
+
                 {errors.service && (
-                  <p className="text-red-500 text-xs mt-1">{errors.service}</p>
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.service}
+                  </p>
                 )}
               </div>
+
             </div>
 
-            {/* Project Details */}
+            {/* Message */}
             <div>
               <textarea
                 name="message"
                 rows={4}
                 placeholder="Project Details..."
-                suppressHydrationWarning
-                className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all resize-none ${errors.message ? 'border-red-500 bg-red-50' : 'border-black/[0.12]'
-                  }`}
+                className={`w-full border rounded-lg px-4 py-3 text-sm text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:border-[#F5E800] focus:ring-2 focus:ring-[#F5E800]/30 transition-all resize-none ${
+                  errors.message
+                    ? "border-red-500 bg-red-50"
+                    : "border-black/[0.12]"
+                }`}
               />
+
               {errors.message && (
-                <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.message}
+                </p>
               )}
             </div>
 
-            {/* Send Button */}
+            {/* Submit */}
             <motion.button
               whileHover={{ scale: loading ? 1 : 1.02 }}
               whileTap={{ scale: loading ? 1 : 0.97 }}
               type="submit"
               disabled={loading}
-              suppressHydrationWarning
-              className={`bg-[#F5E800] text-[#1a1a1a] font-bold px-8 py-3 rounded-xl text-sm transition-colors inline-flex items-center gap-2 cursor-pointer w-full justify-center ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#e0d600]'
-                }`}
+              className={`bg-[#F5E800] text-[#1a1a1a] font-bold px-8 py-3 rounded-xl text-sm transition-colors inline-flex items-center gap-2 cursor-pointer w-full justify-center ${
+                loading
+                  ? "opacity-70 cursor-not-allowed"
+                  : "hover:bg-[#e0d600]"
+              }`}
             >
               {loading ? (
                 <>
-                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
                   Sending...
                 </>
               ) : (
                 <>
                   Send
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                    <path d="M22 2 11 13" />
-                    <path d="m22 2-7 20-4-9-9-4 20-7z" />
-                  </svg>
                 </>
               )}
             </motion.button>
+
           </form>
         </motion.div>
 
-        {/* Portfolio Made with */}
+        {/* Tools */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -275,18 +299,22 @@ export default function ContactForm() {
           <h4 className="text-[#1a1a1a] font-bold text-xl mb-5">
             Portfolio Made with
           </h4>
+
           <div className="flex flex-wrap gap-3 justify-center">
             {PORTFOLIO_TOOLS.map((tool) => (
               <span
                 key={tool.label}
                 className="flex items-center gap-2 px-4 py-2 rounded-full border border-black/[0.12] text-sm text-[#3a3a3a] bg-white"
               >
-                <span className="text-xs font-bold opacity-80">{tool.icon}</span>
+                <span className="text-xs font-bold opacity-80">
+                  {tool.icon}
+                </span>
                 {tool.label}
               </span>
             ))}
           </div>
         </motion.div>
+
       </div>
     </section>
   );
